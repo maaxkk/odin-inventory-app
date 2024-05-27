@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+    h1= title
+    if ad_list.length
+        ul
+            each ad in ad_list
+                li
+                    a(href=ad.url) #{ad.title}
+                    | (#{ad.author.full_name})
+    else
+        p There are no ads.

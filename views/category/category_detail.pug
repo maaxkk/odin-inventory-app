@@ -1,0 +1,20 @@
+extends ../layout
+
+block content
+    h1 Category: #{category.name}
+
+    div(style='margin-left:20px; margin-top:20px')
+        h2(style='font-size: 1.5rem;') Ads
+        if category_ads.length
+            dl
+                each ad in category_ads
+                    dt
+                        a(href=ad.url) #{ad.title}
+                    dd #{ad.description}
+        else
+            p This genre has no books.
+    hr
+    p
+        a(href=category.url+'/delete') Delete category
+        hr
+        a(href=category.url + '/update') Update category

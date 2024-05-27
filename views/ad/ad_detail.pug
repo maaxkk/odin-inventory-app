@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+    h1 Title: #{ad.title}
+
+    p #[strong Author: ]
+        a(href=ad.author.url) #{ad.author.full_name}
+    p #[strong Description: ] #{ad.description}
+    p #[strong Category: ]
+        each val, index in ad.category
+            a(href=val.url) #{val.name}
+            if index < ad.category.length - 1
+                | ,&nbsp;
+    div(style='margin-left:20px;margin-top:20px')
+    if ad.url
+        img(src=ad.img alt='Image of add')
+    hr
+    p
+        a(href=ad.url+'/delete') Delete ad
+    p
+        a(href=ad.url + '/update') Update ad
