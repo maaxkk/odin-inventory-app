@@ -3,7 +3,7 @@ extends ../layout
 block content
     h1= title
 
-    form(method='POST')
+    form(method='POST' enctype='multipart/form-data')
         div.form-group
             label(for='title') Title:
             input#title.form-control(type='text', placeholder='Title of ad' name='title' required
@@ -31,6 +31,10 @@ block content
             label(for='confirmPassword') Old Password:
             input#confirmPassword.form-control(type='text', placeholder='Old password' name='confirmPassword' required
             value=(undefined === confirmPassword ? '' : confirmPassword) )
+        div.form-group
+            label(for='image') Upload image:
+            input#image.form-control(type='file' name='image'
+                value=(undefined === ad ? '' : ad.image) )
 
         div.form-group
             label Category:
